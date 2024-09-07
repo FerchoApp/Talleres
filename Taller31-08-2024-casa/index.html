@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header text-center bg-primary text-white">
+                <h4>Inscripción</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <!-- Nombre -->
+                    <div class="mb-3 row">
+                        <label for="name" class="col-sm-2 col-form-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre">
+                        </div>
+                    </div>
+
+                    <!-- Sexo -->
+                    <div class="mb-3 row">
+                        <label for="Genero" class="col-sm-2 col-form-label">Sexo</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" id="Genero" name="Genero">
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="39 tipos de gays">39 Tipos de Gay</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Edad -->
+                    <div class="mb-3 row">
+                        <label for="edad" class="col-sm-2 col-form-label">Edad</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese su edad">
+                        </div>
+                    </div>
+
+                    <!-- Estado Civil -->
+                    <fieldset class="mb-3">
+                        <legend class="col-form-label">Estado Civil</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estado" id="soltero" value="soltero">
+                            <label class="form-check-label" for="soltero">Soltero</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estado" id="casado" value="casado">
+                            <label class="form-check-label" for="casado">Casado</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estado" id="union-libre" value="union libre">
+                            <label class="form-check-label" for="union-libre">Unión Libre</label>
+                        </div>
+                    </fieldset>
+
+                    <!-- Gustos Musicales -->
+                    <fieldset class="mb-4">
+                        <legend class="col-form-label">Gustos Musicales</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="vallenato" name="genero musical" value="vallenato">
+                            <label class="form-check-label" for="vallenato">Vallenato</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="champeta" name="genero musical" value="champeta">
+                            <label class="form-check-label" for="champeta">Champeta</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="salsa" name="genero musical" value="salsa">
+                            <label class="form-check-label" for="salsa">Salsa</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="merengue" name="genero musical" value="merengue">
+                            <label class="form-check-label" for="merengue">Merengue</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="regueton" name="genero musical" value="regueton">
+                            <label class="form-check-label" for="regueton">Reguetón</label>
+                        </div>
+                    </fieldset>
+
+                    <!-- Botón Guardar -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
