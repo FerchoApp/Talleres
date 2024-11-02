@@ -9,11 +9,13 @@ class AyudaTexto extends HTMLElement {
                 span {
                     background-color: #f0f8ff;
                     color: #333;
-                    padding: 4px 8px;
-                    border-radius: 4px;
-                    font-size: 0.9em;
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                    font-size: 1em;
                     font-weight: bold;
+                    text-align: center;
                     display: inline-block;
+                    margin: 10px auto;
                 }
             </style>
             <span><slot>Ayuda</slot></span>
@@ -21,6 +23,7 @@ class AyudaTexto extends HTMLElement {
     }
 }
 customElements.define("ayuda-texto", AyudaTexto);
+
 class BotonNotificaciones extends HTMLElement {
     constructor() {
         super();
@@ -35,9 +38,12 @@ class BotonNotificaciones extends HTMLElement {
                     background-color: #007bff;
                     color: white;
                     border: none;
-                    padding: 10px 15px;
+                    padding: 10px 20px;
                     border-radius: 5px;
                     cursor: pointer;
+                    margin: 10px auto;
+                    font-size: 1em;
+                    font-weight: bold;
                 }
                 button img {
                     margin-right: 8px;
@@ -47,13 +53,14 @@ class BotonNotificaciones extends HTMLElement {
                 }
             </style>
             <button>
-                <img src="https://via.placeholder.com/20" alt="icono">
+                🔔
                 Notificaciones
             </button>
         `;
     }
 }
 customElements.define("boton-notificaciones", BotonNotificaciones);
+
 class CajaClave extends HTMLElement {
     constructor() {
         super();
@@ -63,9 +70,14 @@ class CajaClave extends HTMLElement {
         shadow.innerHTML = `
             <style>
                 input {
-                    padding: 8px;
+                    padding: 10px;
+                    width: 80%;
+                    max-width: 300px;
                     border: 1px solid #007bff;
                     border-radius: 5px;
+                    text-align: center;
+                    display: block;
+                    margin: 10px auto;
                 }
             </style>
             <input type="password" id="clave" placeholder="Ingrese su clave">
@@ -84,6 +96,7 @@ class CajaClave extends HTMLElement {
     }
 }
 customElements.define("caja-clave", CajaClave);
+
 class CajaCupon extends HTMLElement {
     constructor() {
         super();
@@ -93,11 +106,15 @@ class CajaCupon extends HTMLElement {
         shadow.innerHTML = `
             <style>
                 input {
-                    padding: 8px;
+                    padding: 10px;
+                    width: 80%;
+                    max-width: 300px;
                     border: 2px dashed #28a745;
                     border-radius: 5px;
                     font-style: italic;
                     text-align: center;
+                    display: block;
+                    margin: 10px auto;
                 }
             </style>
             <input type="text" placeholder="Ingrese cupón de descuento">
