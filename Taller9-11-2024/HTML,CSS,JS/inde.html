@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactividad Completa</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hoja de estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    h1, h2 {
+      font-weight: bold;
+      transition: font-size 0.3s ease;
+    }
+    h1 {
+      font-size: 2em;
+      color: #333;
+    }
+    h2 {
+      font-size: 1.5em;
+      color: #666;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .counter-display {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+    }
+    .image-container {
+      width: 300px; 
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      margin-top: 40px;
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.3s ease;
+      position: absolute;
+    }
+    .image1 {
+      opacity: 1;
+    }
+    .image2 {
+      opacity: 0;
+    }
+    .image-container:hover .image1 {
+      opacity: 0;
+    }
+    .image-container:hover .image2 {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="mainTitle">Título Principal</h1>
+  <h2 id="subTitle">Subtítulo</h2>
+
+  <!-- Botones para ajustar el tamaño del texto -->
+  <button id="increaseTextSize">Aumentar tamaño de texto</button>
+  <button id="decreaseTextSize">Reducir tamaño de texto</button>
+
+  <!-- Contador -->
+  <button id="incrementButton">Incrementar</button>
+  <div class="counter-display">
+    Contador: <span id="counter">0</span>
+  </div>
+
+  <!-- Caja de Texto Reactiva -->
+  <label for="reactiveInput">Ingresa texto:</label>
+  <input type="text" id="reactiveInput" placeholder="Escribe aquí...">
+
+  <!-- Imagen que cambia al pasar el mouse -->
+  <div class="image-container">
+    <img src="imagen1.jpg" alt="Imagen Original" class="image1">
+    <img src="imagen2.jpg" alt="Imagen al pasar el mouse" class="image2">
+  </div>
+
+  <script>
+    // Lógica del Contador
+    let counter = 0;
+    let increment = 1;
+
+    const incrementButton = document.getElementById("incrementButton");
+    const counterDisplay = document.getElementById("counter");
+
+    incrementButton.addEventListener("click", () => {
+      counter += increment;
+
+      if (counter >= 100) {
+        incrementButton.disabled = true;
+        incrementButton.textContent = "Límite alcanzado";
+      } else {
+        if (counter % 5 === 0) {
+          increment += 1;
+        }
+      }
+
+      counterDisplay.textContent = counter;
+    });
+
+    // Lógica de la Caja de Texto Reactiva
+    const reactiveInput = document.getElementById("reactiveInput");
+
+    reactiveInput.addEventListener("blur", () => {
+      reactiveInput.value = reactiveInput.value.toUpperCase();
+    });
+
+    // Lógica para aumentar y reducir el tamaño del texto de los títulos
+    const mainTitle = document.getElementById("mainTitle");
+    const subTitle = document.getElementById("subTitle");
+    const increaseTextSize = document.getElementById("increaseTextSize");
+    const decreaseTextSize = document.getElementById("decreaseTextSize");
+
+    let initialMainTitleSize = 2; // Tamaño inicial en 'em'
+    let initialSubTitleSize = 1.5; // Tamaño inicial en 'em'
+    let currentMainTitleSize = initialMainTitleSize;
+    let currentSubTitleSize = initialSubTitleSize;
+
+    increaseTextSize.addEventListener("click", () => {
+      currentMainTitleSize += 0.1;
+      currentSubTitleSize += 0.1;
+      mainTitle.style.fontSize = `${currentMainTitleSize}em`;
+      subTitle.style.fontSize = `${currentSubTitleSize}em`;
+    });
+
+    decreaseTextSize.addEventListener("click", () => {
+      if (currentMainTitleSize > initialMainTitleSize && currentSubTitleSize > initialSubTitleSize) {
+        currentMainTitleSize -= 0.1;
+        currentSubTitleSize -= 0.1;
+        mainTitle.style.fontSize = `${currentMainTitleSize}em`;
+        subTitle.style.fontSize = `${currentSubTitleSize}em`;
+      }
+    });
+  </script>
+</body>
+</html>
